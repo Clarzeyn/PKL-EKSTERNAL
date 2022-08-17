@@ -181,7 +181,24 @@
                                     <label class="form-check-label">
                                         Belum Menikah
                                     </label>
-                                </div>
+                            </div>
+                                <div class="mb-3">
+                                <label class="form-label">Rt dan Rw</label>
+                                <select name="id_rts" class="form-control @error('id_rts') is-invalid @enderror"
+                                    readonly>
+                                    @foreach ($Rts as $data)
+                                        <option value="{{ $data->id }}"
+                                            {{ $data->id == $data->id_rts ? 'selected' : '' }}>
+                                            {{ $data->nama }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('id_rts')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                             <div class="mb-3">
                                 <div class="d-grid gap-2">
                                     <button class="btn btn-primary" type="submit">Save</button>

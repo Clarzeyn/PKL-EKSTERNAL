@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Penduduk;
+use App\Models\Rts;
 use Illuminate\Http\Request;
 
 class PendudukController extends Controller
@@ -14,7 +15,7 @@ class PendudukController extends Controller
      */
     public function index()
     {
-        $data = Penduduk::all();
+        $data = Penduduk::with('rts')->get();
         return view('penduduk.index', compact('data'));
 
     }
@@ -26,7 +27,8 @@ class PendudukController extends Controller
      */
     public function create()
     {
-        return view('penduduk.create');
+        $Rts = Rts::all();
+        return view('penduduk.create', compact('Rts'));
 
     }
 
@@ -46,6 +48,7 @@ class PendudukController extends Controller
             'tgl_lahir' => 'required',
             'alamat' => 'required',
             'status' => 'required',
+            'id_rts' => 'required|unique:penduduks',
         ]);
 
         $data = new Penduduk();
@@ -56,7 +59,7 @@ class PendudukController extends Controller
         $data->tgl_lahir = $request->tgl_lahir;
         $data->alamat = $request->alamat;
         $data->status = $request->status;
-
+        $data->id_rts = $request->id_rts;
         $data->save();
         return redirect()->route('penduduk.index')
             ->with('success', 'Data berhasil dibuat!');
@@ -85,7 +88,8 @@ class PendudukController extends Controller
     public function edit($id)
     {
         $data = Penduduk::findOrFail($id);
-        return view('penduduk.edit', compact('data'));
+        $Rts = Rts::all();
+        return view('penduduk.edit', compact('data', 'Rts'));
 
     }
 
@@ -107,6 +111,7 @@ class PendudukController extends Controller
             'tgl_lahir' => 'required',
             'alamat' => 'required',
             'status' => 'required',
+            'id_rts' => 'required|unique:penduduks,id_rts,',
         ]);
 
         $data = Penduduk::findOrFail($id);
@@ -116,6 +121,7 @@ class PendudukController extends Controller
         $data->agama = $request->agama;
         $data->tgl_lahir = $request->tgl_lahir;
         $data->status = $request->status;
+        $data->id_rts = $request->id_rts;
         $data->save();
         return redirect()->route('penduduk.index')
             ->with('success', 'Data berhasil diedit!');

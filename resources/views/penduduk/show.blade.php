@@ -45,6 +45,12 @@
                                 readonly>
                         </div>
                         <div class="mb-3">
+                            <label class="form-label">Rt dan Rw</label>
+                            <input type="text" class="form-control" name="nama" value="{{ $data->Rts->nama }}"
+                                readonly>
+
+                        </div>
+                        <div class="mb-3">
                             <div class="d-grid gap-2">
                                 <a href="{{ route('penduduk.index') }}" class="btn btn-primary" type="submit">Kembali</a>
                             </div>

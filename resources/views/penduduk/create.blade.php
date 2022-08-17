@@ -112,6 +112,20 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
+                                <label class="form-label">Pilih Rt dan Rw</label>
+                                <select name="id_rts" class="form-control @error('id_rts') is-invalid @enderror"
+                                    id="">
+                                    @foreach ($Rts as $data)
+                                        <option value="{{ $data->id }}">{{ $data->nama }}</option>
+                                    @endforeach
+                                </select>
+                                @error('id_rts')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
                                 <div class="d-grid gap-2">
                                     <button class="btn btn-primary" type="submit">Save</button>
                                 </div>

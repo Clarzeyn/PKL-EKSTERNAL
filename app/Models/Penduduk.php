@@ -8,8 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Penduduk extends Model
 {
     use HasFactory;
-    protected $table = 'penduduks';
-    protected $fillable = ['nama', 'nik', 'agama', 'jenis_kelamin', 'alamat', 'tgl_lahir', 'status', 'id_rts'];
-    protected $hidden;
+    public $table = 'penduduks';
+    public $fillable = ['nama', 'nik', 'agama', 'jenis_kelamin', 'alamat', 'tgl_lahir', 'status', 'id_rts'];
+
+    public function rts()
+    {
+        return $this->belongsTo(Rts::class, 'id_rts');
+    }
 
 }

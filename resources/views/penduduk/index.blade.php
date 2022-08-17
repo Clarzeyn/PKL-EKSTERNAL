@@ -25,6 +25,7 @@
                                         <th>Tanggal Lahir</th>
                                         <th>Alamat</th>
                                         <th>Status</th>
+                                        <th>Rt dan Rw</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -40,6 +41,7 @@
                                             <td>{{ date('d M Y', strtotime($data->tgl_lahir)) }}</td>
                                             <td>{{ $data->alamat }}</td>
                                             <td>{{ $data->status }}</td>
+                                            <td>{{ $data->Rts->nama }}</td>
                                             <td>
                                                 <form action="{{ route('penduduk.destroy', $data->id) }}" method="post">
                                                     @csrf
