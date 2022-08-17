@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PendudukController;
+use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,5 +28,5 @@ Route::get('/hello', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::resource('siswa', SiswaController::class);
 Route::resource('penduduk', PendudukController::class);

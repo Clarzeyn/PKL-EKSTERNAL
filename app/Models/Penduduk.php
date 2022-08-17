@@ -9,6 +9,7 @@ class Penduduk extends Model
 {
     use HasFactory;
     protected $table = 'penduduks';
-    protected $fillable = ['nama', 'nis', 'agama', 'jenis_kelamin', 'alamat', 'tgl_lahir', 'status'];
+    protected $fillable = ['nama', 'nik', 'agama', 'jenis_kelamin', 'alamat', 'tgl_lahir', 'status', 'id_rts'];
     protected $hidden;
+
 }
