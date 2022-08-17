@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rts;
 use Illuminate\Http\Request;
 
 class RtsController extends Controller

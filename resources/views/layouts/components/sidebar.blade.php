@@ -56,6 +56,16 @@
                     </a>
                   </li>
                 </ul>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{route('rts.index')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Data Rt dan Rw</p>
+                    </a>
+                  </li>
+                    </a>
+                  </li>
+                </ul>
           @guest
           @if(Route::has('login'))
             <li class="nav-item">
