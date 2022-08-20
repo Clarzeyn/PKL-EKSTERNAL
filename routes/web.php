@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\RtsController;
 use App\Http\Controllers\SiswaController;
@@ -32,3 +33,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('siswa', SiswaController::class);
 Route::resource('penduduk', PendudukController::class);
 Route::resource('rts', RtsController::class);
+Route::resource('pegawai', PegawaiController::class)->except(['show', 'update']);
